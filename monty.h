@@ -50,5 +50,8 @@ void free_stack(stack_t **stack);
 
 /*math functions*/
 void fn_add(stack_t **stack, unsigned int line_number);
-
+void fn_sub(stack_t **stack, unsigned int line_number);
+void fn_div(stack_t **stack, unsigned int line_number);
+void fn_mul(stack_t **stack, unsigned int line_number);
+void fn_mod(stack_t **stack, unsigned int line_number);
 #endif

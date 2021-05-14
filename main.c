@@ -41,17 +41,11 @@ int main(int ac, char **av)
 			fn_push(&stack, num, ch);
 		}
 		else if (strcmp(token, "nop") == 0)
-		{
 			continue;
-		}
 		else
-		{
 			select_fn(&stack, token, num);
-		}
 	}
-	fclose(files);
-	free(line);
-	free_stack(&stack);
+	fclose(files), free(line), free_stack(&stack);
 	return (0);
 }
 /**
@@ -67,12 +61,11 @@ void select_fn(stack_t **stack, char *token, unsigned int line_number)
 	int i;
 
 	instruction_t fn_op[] = {
-		{"pall", fn_pall},
-		{"pint", fn_pint},
-		{"swap", fn_swap},
-		{"pop", fn_pop},
-		{"add", fn_add},
-		{NULL, NULL}};
+		{"pall", fn_pall}, {"pint", fn_pint},
+		{"swap", fn_swap}, {"pop", fn_pop},
+		{"add", fn_add}, {"sub", fn_sub},
+		{"div", fn_div}, {"mul", fn_mul},
+		{"mod", fn_mod}, {NULL, NULL}};
 	for (i = 0; fn_op[i].opcode != NULL; i++)
 	{
 		if (strcmp(token, fn_op[i].opcode) == 0)
