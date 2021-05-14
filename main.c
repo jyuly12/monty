@@ -35,6 +35,10 @@ int main(int ac, char **av)
 			ch = strtok(NULL, _LIMITS_);
 			fn_push(&stack, num, ch);
 		}
+		else if (strcmp(token, "nop") == 0)
+		{
+			continue;
+		}
 		else
 		{
 			select_fn(&stack, token, num);
