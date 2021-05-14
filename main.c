@@ -41,7 +41,7 @@ int main(int ac, char **av)
 		}
 	}
 	fclose(files);
-	free(token);
+	free(line);
 	return (0);
 }
 /**
@@ -59,6 +59,7 @@ void select_fn(stack_t **stack, char *token, unsigned int line_number)
 	instruction_t fn_op[] = {
 		{"pall", fn_pall},
 		{"pint", fn_pint},
+		{"pop", fn_pop},
 		{NULL, NULL}};
 	for (i = 0; fn_op[i].opcode != NULL; i++)
 	{
@@ -69,6 +70,5 @@ void select_fn(stack_t **stack, char *token, unsigned int line_number)
 		}
 	}
 	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, token);
-	free(token);
 	exit(EXIT_FAILURE);
 }
