@@ -20,11 +20,13 @@ void fn_push(stack_t **stack, unsigned int line_number, char *n)
 	if (!new_node)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
+		free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
 	if (isdigit(*n) == 0)
 	{
 		printf("L%d: usage: push integer\n", line_number);
+		free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
 	new_node->n = atoi(n);
@@ -70,6 +72,7 @@ void fn_pint(stack_t **stack, unsigned int line_number)
 	if (!*stack || !stack)
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+		free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
 	else
@@ -86,9 +89,11 @@ void fn_pint(stack_t **stack, unsigned int line_number)
 void fn_pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *node;
+
 	if (stack == NULL || *stack == NULL)
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack", line_number);
+		free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
 	node = *stack;

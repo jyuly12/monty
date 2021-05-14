@@ -25,15 +25,16 @@ void free_stack(stack_t **stack)
  */
 void fn_swap(stack_t **stack, unsigned int line_number)
 {
-	int tmp;
+	int temp = 0;
 
 	if (*stack == NULL || (*stack)->prev == NULL)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n",
 			line_number);
+		free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
-	tmp = (*stack)->n;
-	(*stack)->n = (*stack)->next->n;
-	(*stack)->next->n = tmp;
+	temp = (*stack)->n;
+	(*stack)->n = (*stack)->prev->n;
+	(*stack)->prev->n = temp;
 }
