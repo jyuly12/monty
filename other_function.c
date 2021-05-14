@@ -18,8 +18,8 @@ void free_stack(stack_t **stack)
 }
 /**
  * fn_swap - swaps the top two elements of the stack.
- * @stack:
- * @line_number:
+ * @stack: structure.
+ * @line_number: line where is the function.
  *
  * Return: None.
  */
