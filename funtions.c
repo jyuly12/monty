@@ -22,6 +22,11 @@ void fn_push(stack_t **stack, unsigned int line_number, char *n)
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
+	if (isdigit(*n) == 0)
+	{
+		printf("L%d: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 	new_node->n = atoi(n);
 	new_node->next = NULL;
 	if (*stack != NULL)
