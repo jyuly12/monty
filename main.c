@@ -69,6 +69,7 @@ void select_fn(stack_t **stack, char *token, unsigned int line_number)
 	instruction_t fn_op[] = {
 		{"pall", fn_pall},
 		{"pint", fn_pint},
+		{"swap", fn_swap},
 		{"pop", fn_pop},
 		{"add", fn_add},
 		{NULL, NULL}};
