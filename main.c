@@ -28,8 +28,13 @@ int main(int ac, char **av)
 	}
 	while (getline(&line, &len, files) != EOF)
 	{
+
 		token = strtok(line, _LIMITS_);
 		num++;
+		if (token == NULL || strcmp(token, "#") == 0)
+		{
+			continue;
+		}
 		if (strcmp(token, "push") == 0)
 		{
 			ch = strtok(NULL, _LIMITS_);
