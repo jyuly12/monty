@@ -44,4 +44,7 @@ void fn_pint(stack_t **stack, unsigned int line_number);
 void fn_pall(stack_t **stack, unsigned int line_number);
 void fn_pop(stack_t **stack, unsigned int line_number);
 
+/*math functions*/
+void fn_add(stack_t **stack, unsigned int line_number);
+
 #endif

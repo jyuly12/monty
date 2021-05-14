@@ -60,6 +60,7 @@ void select_fn(stack_t **stack, char *token, unsigned int line_number)
 		{"pall", fn_pall},
 		{"pint", fn_pint},
 		{"pop", fn_pop},
+		{"add", fn_add},
 		{NULL, NULL}};
 	for (i = 0; fn_op[i].opcode != NULL; i++)
 	{
